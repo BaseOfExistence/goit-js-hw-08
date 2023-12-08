@@ -89,12 +89,10 @@ gallery.addEventListener("click", (event) => {
           <div class="modal">
             <img src="${event.target.dataset.source}" alt="Bis img"/>
           </div>`);
-        instance.show();
+        instance.show(document.addEventListener("keyup", (event) => {
+        if (event.code === "Escape") {
+          instance.close();
+        }}));
     }
 });
-document.addEventListener("keyup", (event) => {
-    console.log(event.code);
-    if (event.code === "Escape") {
-        instance.close();
-    }
-});
+
